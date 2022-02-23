@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="btn">누르면 5개뜸</button>
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function() {
+             alert("표준이벤트");
+        });//on 키워드는 제외합니다
+        
+        //표준이벤트는 동일한 이벤트를 여러개 적용 할 수 있음.
+        btn.addEventListener("click", function() {
+            alert("표준이벤트2222222")
+        });
+
+        btn.addEventListener("click", function() {
+            alert("표준이벤트3333333")
+        });
+
+        btn.addEventListener("click", function() {
+            alert("사실 4개뜸")
+        });
+
+
+    </script>
+</body>
+</html>
