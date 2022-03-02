@@ -24,7 +24,7 @@
                 <th>내용</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table">
             <tr>
                 <td>
                     <button type="button" onclick="down(this)">▽</button>
@@ -82,6 +82,36 @@
             // console.log(node.previousElementSibling); //이전 형제노드
             // console.log(node.firstElementChild); //첫번째 자식요소 (지금은x)
             // console.log(node.lastElementChild); //첫번째 자식요소 (지금은x)
+
+            //클릭한 버튼의 부모
+            var current = node.parentElement.parentElement;
+            var next = current.nextElementSibling;
+
+            //마지막 행이라면 종료
+            if(next == null){
+                alert("마지막 행입니다")
+                return;
+            }
+
+            var table = document.querySelector(".table");
+            table.insertBefore(next, current);
+            //insertBefore(삽입노드, 기준노드); //기준노드 앞에 삽입노드를 추가
+
+        }
+
+        //up버튼 - insertBefore를 이용해서 처리
+        function up(node) {
+
+            var current = node.parentElement.parentElement;
+            var prev = current.previousElementSibling;
+
+            if(prev == null){
+                alert("첫번째 행입니다")
+                return;
+            }
+
+            var table = document.querySelector(".table");
+            table.insertBefore(current, prev);
         }
     </script>
 </body>
