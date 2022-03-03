@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <h3>이벤트 위임방식으로 처리</h3>
+
+    <div>
+        <ul class="a">
+            <li><img src="img/1.jpg" width="100"></li>
+            <li><img src="img/2.jpg" width="100"></li>
+            <li><img src="img/3.jpg" width="100"></li>
+            <li><img src="img/4.jpg" width="100"></li>
+        </ul>
+
+        결과:
+        <div class="b">
+            <img src="img/2.jpg" width="400" alt="대표이미지">
+        </div>
+    </div>
+
+    <script>
+        var b = document.querySelector(".b > img")
+        var a = document.querySelector(".a"); //ul
+        a.onclick = function() {
+
+            if(event.target.tagName != "IMG") return; //IMG태그가 아니라면 종료
+            b.src = event.target.src;
+            
+        }
+
+    </script>
+</body>
+</html>
